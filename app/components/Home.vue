@@ -5,24 +5,24 @@
     </ActionBar>
 
     <GridLayout>
-      <Label class="info">
-        <FormattedString>
-          <Span class="fas" text.decode="&#xf135; "/>
-          <Span :text="message"/>
-        </FormattedString>
-      </Label>
+      <Label class="info" :text="message" />
     </GridLayout>
   </Page>
 </template>
 
 <script lang="ts">
-  import Vue from "nativescript-vue";
+import Vue from 'nativescript-vue'
+import { Heading}  from '~/services/heading'
 
   export default Vue.extend({
-    computed: {
-      message() {
-        return "Blank {N}-Vue app";
+    data() {
+      return {
+        message: 'coucou',
       }
+    },
+    mounted() {
+      let test = new Heading()
+      test.startHeadingUpdates()
     }
   });
 </script>
